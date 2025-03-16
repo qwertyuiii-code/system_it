@@ -1,14 +1,154 @@
-/* Файл: assets/style.css (Стили для проекта) */
-
+/* Основные стили */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
+
+/* Для всех страниц, кроме index.php */
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+/* Общий стиль для кнопок */
+.index-buttons {
+    display: flex;
+    flex-direction: column;  /* Кнопки идут вертикально */
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 250px; /* Ограничение по ширине */
+}
+
+.index-buttons button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 100%; /* Растягиваем кнопку по ширине */
+}
+
+.index-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Центрирование контейнера */
+.index-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
+/* Контейнер формы */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Форма */
+.login-form {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Поля ввода */
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #fff;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Фокус на поле */
+.login-form input:focus {
+    border-color: #007BFF;
+}
+
+/* Кнопка входа */
+.login-form button {
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+
 
 h1, h2, h3 {
     color: #333;
+}
+
+/* Кнопки */
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Формы */
+form {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 a {
@@ -20,36 +160,7 @@ a:hover {
     text-decoration: underline;
 }
 
-form {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 20px 0;
-}
-
-input, textarea, select, button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.button:hover {
-    background-color: #0056b3;
-}
-
+/* Список проектов и задач */
 ul {
     list-style-type: none;
     padding: 0;
@@ -57,8 +168,8 @@ ul {
 
 ul li {
     background: #fff;
-    margin: 5px 0;
-    padding: 10px;
+    margin: 10px 0;
+    padding: 15px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }

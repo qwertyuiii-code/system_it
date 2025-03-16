@@ -23,14 +23,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <!DOCTYPE html>
-<html>
-<head><title>Вход</title></head>
-<body>
-    <h2>Вход</h2>
-    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <form method="POST">
-        <input type="email" name="email" placeholder="Email" required><br>
-        <input type="password" name="password" placeholder="Пароль" required><br>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="login-container">
+    <form action="login.php" method="post" class="login-form">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Пароль" required>
         <button type="submit">Войти</button>
     </form>
 </body>

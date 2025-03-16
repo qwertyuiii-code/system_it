@@ -14,10 +14,21 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<body class="index-container">
     <h1>Добро пожаловать в систему управления IT-компанией</h1>
-    <a href="dashboard.php">Перейти в панель управления</a>
-    <a href="register.php">Регистрация</a>
-    <a href="logout.php">Выйти</a>
+    <div class="index-buttons">
+        <form action="dashboard.php" method="get">
+            <button type="submit">Перейти в Dashboard</button>
+        </form>
+        <form action="login.php" method="get">
+            <button type="submit">Войти</button>
+        </form>
+        <form action="register.php" method="get">
+            <button type="submit">Регистрация</button>
+        </form>
+
+    </div>
+</body>
     
 </body>
 </html>
