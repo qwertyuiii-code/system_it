@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Добро пожаловать в систему управления IT-компанией</h1>
-    <a href="login.php">Перейти в панель управления</a>
+    <a href="dashboard.php">Перейти в панель управления</a>
     <a href="logout.php">Выйти</a>
 </body>
 </html>
