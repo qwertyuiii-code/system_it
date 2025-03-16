@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head><title>Вход</title></head>
 <body>
+<link rel="stylesheet" href="assets/style.css">
     <h2>Вход</h2>
     <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
     <form method="POST">
