@@ -1,0 +1,35 @@
+# Проект
+
+## Описание
+Этот проект использует `vlucas/phpdotenv` для загрузки переменных окружения из `.env` файла.
+
+## Установка
+
+1. Склонируйте репозиторий:
+   ```sh
+   git clone https://github.com/qwertyuiii-code/system_it/
+   cd system_it
+   ```
+2. Установите зависимости через Composer:
+   ```sh
+   composer require vlucas/phpdotenv
+   ```
+3. Создайте `.env` файл в корне проекта и добавьте в него следующее:
+   ```env
+   DB_HOST=localhost
+   DB_NAME=your_database
+   DB_USER=root
+   DB_PASS=your_password
+   ```
+
+## Использование
+
+Запустить с помощью команды
+    ```
+    php -S localhost:8000
+    ```
+
+## Лицензия
+
+Этот проект распространяется под лицензией GNU General Public License v3.0.
+
