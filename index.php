@@ -16,6 +16,8 @@ if (!isset($_SESSION['user_id'])) {
 <body>
     <h1>Добро пожаловать в систему управления IT-компанией</h1>
     <a href="dashboard.php">Перейти в панель управления</a>
+    <a href="register.php">Регистрация</a>
     <a href="logout.php">Выйти</a>
+    
 </body>
 </html>
