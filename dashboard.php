@@ -2,16 +2,15 @@
 session_start();
 require 'config/db.php';
 
-// Проверяем, вошел ли пользователь в систему
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Получаем данные пользователя
-$stmt = $pdo->prepare("SELECT name, email FROM users WHERE id = ?");
+// Получаем список проектов пользователя
+$stmt = $pdo->prepare("SELECT * FROM projects WHERE user_id = ?");
 $stmt->execute([$_SESSION['user_id']]);
-$user = $stmt->fetch();
+$projects = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -24,16 +23,24 @@ $user = $stmt->fetch();
 </head>
 <body>
     <div class="container">
-        <h1>Добро пожаловать, <?php echo htmlspecialchars($user['name']); ?>!</h1>
-        <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
+        <h1>Панель управления</h1>
 
-        <h2>Меню</h2>
-        <ul>
-            <li><a href="project.php">Мои проекты</a></li>
-            <li><a href="task.php">Мои задачи</a></li>
-            <li><a href="settings.php">Настройки</a></li>
-            <li><a href="logout.php" class="logout-btn">Выйти</a></li>
-        </ul>
+        <!-- Если нет проектов, показываем кнопку -->
+        <?php if (empty($projects)): ?>
+            <p>Проекты не найдены.</p>
+            <a href="add_project.php" class="button">Добавить проект</a>
+        <?php else: ?>
+            <h2>Ваши проекты</h2>
+            <ul>
+                <?php foreach ($projects as $project): ?>
+                    <li>
+                        <a href="project.php?id=<?php echo $project['id']; ?>">
+                            <?php echo htmlspecialchars($project['name']); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
     </div>
 </body>
 </html>
