@@ -1,23 +1,24 @@
 <?php
 session_start();
-require 'config/db.php';
+require __DIR__ . '/config/db.php'; // Подключение к базе
 
+// Проверяем, авторизован ли пользователь
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
 
 // Получаем список проектов пользователя
+$user_id = $_SESSION['user_id'];
 $stmt = $pdo->prepare("SELECT * FROM projects WHERE user_id = ?");
-$stmt->execute([$_SESSION['user_id']]);
-$projects = $stmt->fetchAll();
+$stmt->execute([$user_id]);
+$projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Панель управления</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -25,18 +26,17 @@ $projects = $stmt->fetchAll();
     <div class="container">
         <h1>Панель управления</h1>
 
-        <!-- Если нет проектов, показываем кнопку -->
+        <!-- Кнопка "Добавить проект" всегда отображается -->
+        <a href="add_project.php" class="btn">Добавить проект</a>
+
         <?php if (empty($projects)): ?>
-            <p>Проекты не найдены.</p>
-            <a href="add_project.php" class="button">Добавить проект</a>
+            <p>У вас пока нет проектов.</p>
         <?php else: ?>
-            <h2>Ваши проекты</h2>
             <ul>
                 <?php foreach ($projects as $project): ?>
                     <li>
-                        <a href="project.php?id=<?php echo $project['id']; ?>">
-                            <?php echo htmlspecialchars($project['name']); ?>
-                        </a>
+                        <strong><?= htmlspecialchars($project['title']) ?></strong>
+                        <a href="project.php?id=<?= $project['id'] ?>">Открыть</a>
                     </li>
                 <?php endforeach; ?>
             </ul>

@@ -133,6 +133,34 @@ button:hover {
     background-color: #0056b3;
 }
 
+/* Контейнер */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Кнопка */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
 /* Формы */
 form {
     width: 100%;
